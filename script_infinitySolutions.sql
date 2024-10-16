@@ -14,17 +14,6 @@ create table curso (
     valor_mensalidade_curso double(6,2)
 );
 
-create table recomendacao_enviada (
-	codigo_recomendacao_enviada int primary key auto_increment,
-    fkcodigo_curso int not null,
-    fkcodigo_prompt int not null,
-    descricao_recomendacao_enviada text not null,
-    dt_hr_recomendacao_enviada datetime not null,
-    
-    constraint fk_recEnv_prompt_ia_codigo foreign key (fkcodigo_prompt) references prompt_ia (codigo_prompt),
-    constraint fk_recEnv_curso_codigo foreign key (fkcodigo_curso) references curso (codigo_curso)
-);
-
 create table instituicao (
 	codigo_instituicao int primary key auto_increment,
     nome_instituicao varchar(60) not null,
@@ -79,6 +68,18 @@ create table turma (
     constraint fk_turma_unidade_codigo foreign key (fkcodigo_unidade) references curso_unidade(fkcodigo_unidade),
     constraint fk_turma_curso_codigo foreign key (fkcodigo_curso) references curso_unidade(fkcodigo_curso)
 ) auto_increment = 100;
+
+
+create table recomendacao_enviada (
+	codigo_recomendacao_enviada int primary key auto_increment,
+    fkcodigo_turma int not null,
+    fkcodigo_prompt int not null,
+    descricao_recomendacao_enviada text not null,
+    dt_hr_recomendacao_enviada datetime not null,
+    
+    constraint fk_recEnv_prompt_ia_codigo foreign key (fkcodigo_prompt) references prompt_ia (codigo_prompt),
+    constraint fk_recEnv_turma_codigo foreign key (fkcodigo_turma) references turma (codigo_turma)
+);
 
 create table motivo_evasao (
 	codigo_motivo_evasao int primary key auto_increment,
