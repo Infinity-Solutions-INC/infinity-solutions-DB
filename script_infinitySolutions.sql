@@ -38,10 +38,10 @@ create table IF NOT EXISTS funcionario (
 	codigo_funcionario char(6) primary key not null,
     nome_funcionario varchar(60) not null,
     cargo_funcionario varchar(40) not null,
-    cpf_funcionário char(11) not null,
+    cpf_funcionario char(11) not null,
     email_funcionario varchar(60) ,
-    senha_funcionario varchar(20) ,
-    status_funcionario varchar(10),
+    senha_funcionario varchar(200) ,
+    status_funcionario varchar(30),
     fkcodigo_unidade int not null,
     
     constraint fk_funcionario_unidade_codigo foreign key (fkcodigo_unidade) references unidade(codigo_unidade),
