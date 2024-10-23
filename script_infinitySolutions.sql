@@ -1,12 +1,12 @@
 CREATE DATABASE IF NOT EXISTS infinity_solutions;
 use infinity_solutions;
 
-create table prompt_ia (
+create table IF NOT EXISTS prompt_ia (
 	codigo_prompt int primary key auto_increment,
     descricao_prompt varchar(100) not null
 );
 
-create table curso (
+create table IF NOT EXISTS curso (
 	codigo_curso int primary key auto_increment,
     nome_curso varchar(60),
     turno_curso varchar(20),
@@ -14,13 +14,13 @@ create table curso (
     valor_mensalidade_curso double(6,2)
 );
 
-create table instituicao (
+create table IF NOT EXISTS instituicao (
 	codigo_instituicao int primary key auto_increment,
     nome_instituicao varchar(60) not null,
     cnpj_instituicao char(14)
 ) auto_increment = 100;
 
-create table unidade (
+create table IF NOT EXISTS unidade (
 	codigo_unidade int primary key auto_increment, 
     nome_unidade varchar(60) not null,
     logradouro_unidade varchar(30) not null,
@@ -34,20 +34,21 @@ create table unidade (
     constraint fk_unidade_instituicao_codigo foreign key (fkcodigo_instituicao) references instituicao(codigo_instituicao)
 ) auto_increment = 1000;
 
-create table funcionario (
-	codigo_funcionario int primary key auto_increment,
+create table IF NOT EXISTS funcionario (
+	codigo_funcionario char(6) primary key not null,
     nome_funcionario varchar(60) not null,
     cargo_funcionario varchar(40) not null,
-    email_funcionario varchar(60) not null,
-    senha_funcionario varchar(20) not null,
-    status_funcionario varchar(10) not null,
+    cpf_funcionário char(11) not null,
+    email_funcionario varchar(60) ,
+    senha_funcionario varchar(20) ,
+    status_funcionario varchar(10),
     fkcodigo_unidade int not null,
     
     constraint fk_funcionario_unidade_codigo foreign key (fkcodigo_unidade) references unidade(codigo_unidade),
-    constraint chk_funcionario_status check (status_funcionario in("ativo", "bloqueado"))
+    constraint chk_funcionario_status check (status_funcionario in("ativo", "aguardando verificação", "bloqueado"))
 );
 
-create table curso_unidade (
+create table IF NOT EXISTS curso_unidade (
 	fkcodigo_unidade int,
     fkcodigo_curso int, 
     dt_registro_curso_unidade date,
@@ -57,7 +58,7 @@ create table curso_unidade (
     constraint pk_curso_unidade primary key (fkcodigo_unidade, fkcodigo_curso)
 );
 
-create table turma (
+create table IF NOT EXISTS turma (
 	codigo_turma int primary key auto_increment,
     ano_turma varchar(4) not null,
     semestre_inicio_turma char(1) not null,
@@ -70,7 +71,7 @@ create table turma (
 ) auto_increment = 100;
 
 
-create table recomendacao_enviada (
+create table IF NOT EXISTS recomendacao_enviada (
 	codigo_recomendacao_enviada int primary key auto_increment,
     fkcodigo_turma int not null,
     fkcodigo_prompt int not null,
@@ -81,7 +82,7 @@ create table recomendacao_enviada (
     constraint fk_recEnv_turma_codigo foreign key (fkcodigo_turma) references turma (codigo_turma)
 );
 
-create table motivo_evasao (
+create table IF NOT EXISTS motivo_evasao (
 	codigo_motivo_evasao int primary key auto_increment,
     descricao_motivo_evasao varchar(50) not null,
     dt_hr_registro_motivo_evasao datetime not null,
