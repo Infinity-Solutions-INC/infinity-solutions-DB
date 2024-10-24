@@ -37,7 +37,7 @@ create table IF NOT EXISTS funcionario (
     fkcodigo_instituicao int not null,
     
     constraint fk_funcionario_instituicao foreign key (fkcodigo_instituicao) references instituicao(codigo_instituicao),
-    constraint chk_funcionario_status check (status_funcionario in("ativo", "aguardando verificação", "bloqueado"))
+    constraint chk_funcionario_status check (status_funcionario in("ativo", "bloqueado"))
 );
 
 create table IF NOT EXISTS turma (
