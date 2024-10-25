@@ -42,7 +42,7 @@ create table IF NOT EXISTS funcionario (
 
 create table IF NOT EXISTS turma (
 	codigo_turma int primary key auto_increment,
-    ano_turma varchar(4) not null,
+    ano_turma int not null,
 	qtd_ingressantes int not null,
     taxa_desistencia double(4,1) not null, 
     fkcodigo_curso int,
