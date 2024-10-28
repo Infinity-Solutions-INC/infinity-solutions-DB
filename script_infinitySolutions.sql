@@ -12,13 +12,13 @@ create table IF NOT EXISTS area_curso (
 );
 
 create table IF NOT EXISTS instituicao (
-	codigo_instituicao int primary key auto_increment,
+	codigo_instituicao int primary key auto_increment,	
     nome_instituicao varchar(60) not null
 ) auto_increment = 100;
 
 create table IF NOT EXISTS curso (
 	codigo_curso int primary key auto_increment,
-    nome_curso varchar(60),
+    nome_curso varchar(120),
     fkcodigo_instituicao int,
     fkcodigo_area int,
     
