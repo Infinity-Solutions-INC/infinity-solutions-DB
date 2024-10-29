@@ -71,9 +71,9 @@ create table IF NOT EXISTS motivo_evasao (
     constraint fk_motEvas_turma_codigo foreign key (fkcodigo_turma) references turma(codigo_turma)
 );
 
-insert into instituicao (nome_instituicao, cnpj_instituicao)
+insert into instituicao (nome_instituicao)
 values
-	("Mackenzie", "12345678901234");
+	("Mackenzie");
 
 insert into funcionario (codigo_funcionario, nome_funcionario, cargo_funcionario, cpf_funcionario, email_funcionario, senha_funcionario, status_funcionario, fkcodigo_instituicao)
 values
