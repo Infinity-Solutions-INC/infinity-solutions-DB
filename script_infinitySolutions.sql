@@ -79,4 +79,4 @@ insert into funcionario (codigo_funcionario, nome_funcionario, cargo_funcionario
 values
 	('vJ8Heo', "Luana", "Diretor", "48825269803", "luacruz2014@gmail.com", "220206", "master", 100),
     ('AB2Dce', "Caio", "Coordenador", "48825269803", "teste@gmail.com", "220206", "master", 100),
-    ('Gf2E14', "Patricia", "Coordenadora", "48825269803", "teste2@gmail.com", "220206", "ativo", 100);
+    ('Gf2E14', "Patricia", "Coordenadora", "48825269803", "teste2@gmail.com", "220206", "aguardando verificação", 100);
