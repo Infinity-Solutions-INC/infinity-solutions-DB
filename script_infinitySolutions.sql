@@ -65,12 +65,12 @@ create table IF NOT EXISTS turma (
 ) auto_increment = 100;
 
 
-create table IF NOT EXISTS recomendacao_enviada (
-	codigo_recomendacao_enviada int primary key auto_increment,
+create table IF NOT EXISTS recomendacao_recebida (
+	codigo_recomendacao_recebida int primary key auto_increment,
     fkcodigo_turma int not null,
     fkcodigo_prompt int not null,
-    descricao_recomendacao_enviada text not null,
-    dt_hr_recomendacao_enviada datetime not null,
+    descricao_recomendacao_recebida text not null,
+    dt_hr_recomendacao_recebida datetime not null,
     
     constraint fk_recEnv_prompt_ia_codigo foreign key (fkcodigo_prompt) references prompt_ia (codigo_prompt),
     constraint fk_recEnv_turma_codigo foreign key (fkcodigo_turma) references turma (codigo_turma)
