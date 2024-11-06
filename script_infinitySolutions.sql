@@ -1,6 +1,16 @@
 CREATE DATABASE IF NOT EXISTS infinity_solutions;
 use infinity_solutions;
 
+create table IF NOT EXISTS nivel_acesso (
+	codido_nvl_acesso int primary key auto_increment,
+    nome_acesso varchar(30) not null 
+);
+
+create table IF NOT EXISTS cargo (
+	codigo_cargo int primary key auto_increment,
+    nome_cargo varchar(30) not null
+);
+
 create table IF NOT EXISTS prompt_ia (
 	codigo_prompt int primary key auto_increment,
     descricao_prompt varchar(100)
@@ -13,7 +23,8 @@ create table IF NOT EXISTS area_curso (
 
 create table IF NOT EXISTS instituicao (
 	codigo_instituicao int primary key auto_increment,	
-    nome_instituicao varchar(60) not null
+    nome_instituicao varchar(60) not null,
+    cnpj_instituicao varchar(9)
 ) auto_increment = 100;
 
 create table IF NOT EXISTS curso (
@@ -29,15 +40,18 @@ create table IF NOT EXISTS curso (
 create table IF NOT EXISTS funcionario (
 	codigo_funcionario char(6) primary key not null,
     nome_funcionario varchar(60) not null,
-    cargo_funcionario varchar(40) not null,
+    fkcodigo_cargo int not null,
     cpf_funcionario char(11) not null,
     email_funcionario varchar(60) ,
     senha_funcionario varchar(200) ,
-    status_funcionario varchar(30),
+    status_funcionario varchar(10),
+    fkcodigo_nvlAcesso int not null,
     fkcodigo_instituicao int not null,
     
     constraint fk_funcionario_instituicao foreign key (fkcodigo_instituicao) references instituicao(codigo_instituicao),
-    constraint chk_funcionario_status check (status_funcionario in("ativo", "aguardando verificação", "master", "bloqueado"))
+    constraint fk_funcionario_nvlAcesso foreign key (fkcodigo_nvlAcesso) references nivel_acesso(codigo_nvl_acesso),
+    constraint fk_funcionario_cargo foreign key (fkcodigo_cargo) references cargo(codigo_cargo),
+    constraint chk_funcionario_status check (status_funcionario in("ativo", "bloqueado"))
 );
 
 create table IF NOT EXISTS turma (
