@@ -1,11 +1,6 @@
 CREATE DATABASE IF NOT EXISTS infinity_solutions;
 use infinity_solutions;
 
-create table IF NOT EXISTS nivel_acesso (
-	codido_nvl_acesso int primary key auto_increment,
-    nome_acesso varchar(30) not null 
-);
-
 create table IF NOT EXISTS cargo (
 	codigo_cargo int primary key auto_increment,
     nome_cargo varchar(30) not null
@@ -24,7 +19,7 @@ create table IF NOT EXISTS area_curso (
 create table IF NOT EXISTS instituicao (
 	codigo_instituicao int primary key auto_increment,	
     nome_instituicao varchar(60) not null,
-    cnpj_instituicao varchar(9)
+    cnpj_instituicao varchar(14)
 ) auto_increment = 100;
 
 create table IF NOT EXISTS curso (
@@ -44,14 +39,12 @@ create table IF NOT EXISTS funcionario (
     cpf_funcionario char(11) not null,
     email_funcionario varchar(60) ,
     senha_funcionario varchar(200) ,
-    status_funcionario varchar(10),
-    fkcodigo_nvlAcesso int not null,
+    status_funcionario varchar(30),
     fkcodigo_instituicao int not null,
     
     constraint fk_funcionario_instituicao foreign key (fkcodigo_instituicao) references instituicao(codigo_instituicao),
-    constraint fk_funcionario_nvlAcesso foreign key (fkcodigo_nvlAcesso) references nivel_acesso(codigo_nvl_acesso),
     constraint fk_funcionario_cargo foreign key (fkcodigo_cargo) references cargo(codigo_cargo),
-    constraint chk_funcionario_status check (status_funcionario in("ativo", "bloqueado"))
+    constraint chk_funcionario_status check (status_funcionario in("ativo", "bloqueado", "aguardando verificacao"))
 );
 
 create table IF NOT EXISTS turma (
@@ -85,12 +78,21 @@ create table IF NOT EXISTS motivo_evasao (
     constraint fk_motEvas_turma_codigo foreign key (fkcodigo_turma) references turma(codigo_turma)
 );
 
-insert into instituicao (nome_instituicao)
+    
+insert into cargo (nome_cargo)
 values
-	("Mackenzie");
-
-insert into funcionario (codigo_funcionario, nome_funcionario, cargo_funcionario, cpf_funcionario, email_funcionario, senha_funcionario, status_funcionario, fkcodigo_instituicao)
+	("Diretor(a)"),
+    ("Coordenador(a)"),
+    ("Secretário(a)"),
+    ("Administrador(a)"),
+    ("CEO");
+    
+insert into instituicao (nome_instituicao, cnpj_instituicao)
 values
-	('vJ8Heo', "Luana", "Diretor", "48825269803", "luacruz2014@gmail.com", "220206", "master", 100),
-    ('AB2Dce', "Caio", "Coordenador", "48825269803", "teste@gmail.com", "220206", "master", 100),
-    ('Gf2E14', "Patricia", "Coordenadora", "48825269803", "teste2@gmail.com", "220206", "aguardando verificação", 100);
+	("Mackenzie", "12345678901234");
+    
+insert into funcionario (codigo_funcionario, nome_funcionario, fkcodigo_cargo, cpf_funcionario, email_funcionario, senha_funcionario, status_funcionario, fkcodigo_instituicao)
+values
+	('vJ8Heo', "Luana", 1, "48825269803", "luacruz2014@gmail.com", "220206", "ativo", 100),
+    ('AB2Dce', "Caio", 2, "48825269803", "teste@gmail.com", "220206", "ativo", 100),
+    ('Gf2E14', "Patricia", 3, "48825269803", "teste2@gmail.com", "220206", "aguardando verificacao", 100);
