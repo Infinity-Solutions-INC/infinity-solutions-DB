@@ -25,6 +25,7 @@ create table IF NOT EXISTS instituicao (
 create table IF NOT EXISTS curso (
 	codigo_curso int primary key auto_increment,
     nome_curso varchar(120),
+    ano_curso int,
     fkcodigo_instituicao int,
     fkcodigo_area int,
     
@@ -87,6 +88,7 @@ values
     ("Administrador(a)"),
     ("CEO");
     
+    select * from cargo;
 insert into instituicao (nome_instituicao, cnpj_instituicao)
 values
 	("Mackenzie", "12345678901234");
@@ -96,3 +98,4 @@ values
 	('vJ8Heo', "Luana", 1, "48825269803", "luacruz2014@gmail.com", "220206", "ativo", 100),
     ('AB2Dce', "Caio", 2, "48825269803", "teste@gmail.com", "220206", "ativo", 100),
     ('Gf2E14', "Patricia", 3, "48825269803", "teste2@gmail.com", "220206", "aguardando verificacao", 100);
+    
