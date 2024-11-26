@@ -1,6 +1,12 @@
 CREATE DATABASE IF NOT EXISTS infinity_solutions;
 use infinity_solutions;
 
+create table IF NOT EXISTS error_logs (
+	id int primary key auto_increment,
+    mensagem_error text,
+    dt_hr_captacao_error datetime
+);
+
 create table IF NOT EXISTS cargo (
 	codigo_cargo int primary key auto_increment,
     nome_cargo varchar(30) not null
