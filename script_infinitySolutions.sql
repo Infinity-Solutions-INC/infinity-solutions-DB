@@ -58,7 +58,11 @@ create table IF NOT EXISTS turma (
 	codigo_turma int primary key auto_increment,
     ano_turma int not null,
 	qtd_ingressantes int not null,
-    qtd_alunos_permanencia int not null, 
+    qtd_alunos_permanencia int not null,
+    modalidade_turma varchar(30),
+    mensalidade_turma double,
+    turno_turma varchar(30),
+    
     fkcodigo_curso int,
     
     constraint fk_turma_curso foreign key (fkcodigo_curso) references curso(codigo_curso)
