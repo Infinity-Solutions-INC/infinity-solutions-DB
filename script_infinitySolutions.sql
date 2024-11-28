@@ -12,6 +12,14 @@ create table IF NOT EXISTS cargo (
     nome_cargo varchar(30) not null
 );
 
+create table IF NOT EXISTS arquivoLido(
+id int primary key auto_increment,
+nome_arquivo varchar(200),
+status_arquivo varchar(30),
+
+constraint chk_status check (status_arquivo in("Lido"))
+);
+
 create table IF NOT EXISTS prompt_ia (
 	codigo_prompt int primary key auto_increment,
     descricao_prompt varchar(100)
