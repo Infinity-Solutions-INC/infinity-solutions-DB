@@ -32,7 +32,7 @@ create table IF NOT EXISTS area_curso (
 
 create table IF NOT EXISTS instituicao (
 	codigo_instituicao int primary key auto_increment,	
-    nome_instituicao varchar(60) not null,
+    nome_instituicao varchar(100) not null,
     cnpj_instituicao varchar(14)
 ) auto_increment = 100;
 
@@ -109,7 +109,7 @@ values
     select * from cargo;
 insert into instituicao (nome_instituicao, cnpj_instituicao)
 values
-	("Mackenzie", "12345678901234");
+	("Universidade Federal de Mato Grosso", "12345678901234");
     
 insert into funcionario (codigo_funcionario, nome_funcionario, fkcodigo_cargo, cpf_funcionario, email_funcionario, senha_funcionario, status_funcionario, fkcodigo_instituicao)
 values
