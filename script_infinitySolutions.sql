@@ -1,4 +1,7 @@
-CREATE DATABASE IF NOT EXISTS infinity_solutions;
+CREATE DATABASE IF NOT EXISTS infinity_solutions
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci;
+
 use infinity_solutions;
 
 create table IF NOT EXISTS error_logs (
