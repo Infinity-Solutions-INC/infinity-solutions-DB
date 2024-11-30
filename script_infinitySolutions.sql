@@ -19,6 +19,7 @@ create table IF NOT EXISTS arquivoLido(
 id int primary key auto_increment,
 nome_arquivo varchar(200),
 status_arquivo varchar(30),
+qtdTurmasInseridas_arquivo int,
 
 constraint chk_status check (status_arquivo in("Lido"))
 );
@@ -116,7 +117,7 @@ values
     
 insert into funcionario (codigo_funcionario, nome_funcionario, fkcodigo_cargo, cpf_funcionario, email_funcionario, senha_funcionario, status_funcionario, fkcodigo_instituicao)
 values
-	('vJ8Heo', "Luana", 1, "48825269803", "luacruz2014@gmail.com", "220206", "ativo", 101),
-    ('AB2Dce', "Caio", 2, "48825269803", "teste@gmail.com", "220206", "ativo", 101),
-    ('Gf2E14', "Patricia", 3, "48825269803", "teste2@gmail.com", "220206", "aguardando verificacao", 101);
+	('vJ8Heo', "Luana", 1, "48825269803", "luacruz2014@gmail.com", "220206", "ativo", 100),
+    ('AB2Dce', "Caio", 2, "48825269803", "teste@gmail.com", "220206", "ativo", 100),
+    ('Gf2E14', "Patricia", 3, "48825269803", "teste2@gmail.com", "220206", "aguardando verificacao", 100);
     
