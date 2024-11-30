@@ -20,7 +20,7 @@ id int primary key auto_increment,
 nome_arquivo varchar(200),
 status_arquivo varchar(30),
 qtdTurmasInseridas_arquivo int,
-
+dataLeitura_arquivo date,
 constraint chk_status check (status_arquivo in("Lido"))
 );
 
