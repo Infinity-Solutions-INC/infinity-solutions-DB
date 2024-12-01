@@ -25,8 +25,8 @@ constraint chk_status check (status_arquivo in("Lido"))
 );
 
 create table IF NOT EXISTS prompt_ia (
-	codigo_prompt int primary key auto_increment,
-    descricao_prompt varchar(100)
+codigo_prompt int primary key auto_increment,
+descricao_prompt text not null
 );
 
 create table IF NOT EXISTS area_curso (
@@ -83,8 +83,8 @@ create table IF NOT EXISTS turma (
 
 create table IF NOT EXISTS recomendacao_recebida (
 	codigo_recomendacao_recebida int primary key auto_increment,
-    fkcodigo_turma int not null,
-    fkcodigo_prompt int not null,
+    fkcodigo_turma int ,
+    fkcodigo_prompt int not null ,
     descricao_recomendacao_recebida text not null,
     dt_hr_recomendacao_recebida datetime not null,
     
