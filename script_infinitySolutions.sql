@@ -83,13 +83,13 @@ create table IF NOT EXISTS turma (
 
 create table IF NOT EXISTS recomendacao_recebida (
 	codigo_recomendacao_recebida int primary key auto_increment,
-    fkcodigo_turma int ,
+    fkcodigo_instituicao int ,
     fkcodigo_prompt int not null ,
-    descricao_recomendacao_recebida text not null,
+    descricao_recomendacao_recebida varchar(10000) not null,
     dt_hr_recomendacao_recebida datetime not null,
     
     constraint fk_recEnv_prompt_ia_codigo foreign key (fkcodigo_prompt) references prompt_ia (codigo_prompt),
-    constraint fk_recEnv_turma_codigo foreign key (fkcodigo_turma) references turma (codigo_turma)
+    constraint fk_recEnv_turma_codigo foreign key (fkcodigo_instituicao) references instituicao (codigo_instituicao)
 );
 
 create table IF NOT EXISTS motivo_evasao (
