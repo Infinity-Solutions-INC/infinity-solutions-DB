@@ -100,6 +100,14 @@ create table IF NOT EXISTS motivo_evasao (
     
     constraint fk_motEvas_turma_codigo foreign key (fkcodigo_turma) references turma(codigo_turma)
 );
+insert into prompt_ia (descricao_prompt) values ("A taxa de evasão da universidade está atualmente em <X>%, e buscamos estratégias para reduzi-la de forma significativa. Considere os seguintes aspectos:
+                    Engajamento Estudantil: Proponha formas de melhorar a integração dos alunos, suporte emocional e engajamento acadêmico.
+                    Infraestrutura e Recursos: Analise como a melhoria das instalações e recursos tecnológicos podem impactar na retenção dos alunos.
+                    Flexibilidade Acadêmica: Sugira ajustes nos horários, modalidades de ensino (presencial, EaD, híbrido) e métodos avaliativos para atender às diversas necessidades dos estudantes.
+                    Suporte Financeiro: Inclua ideias para facilitar o acesso a bolsas, descontos ou financiamento estudantil que aliviem o peso financeiro sobre os alunos.
+		    Comunicação: Indique como estabelecer uma comunicação mais próxima e eficaz entre alunos e a gestão universitária para identificar e resolver problemas rapidamente.
+			As recomendações devem ser práticas, escaláveis e baseadas em melhores práticas de gestão educacional.
+                    faça um texto corrido, sem caracteres especiais ou simbolos");
 
     
 insert into cargo (nome_cargo)
