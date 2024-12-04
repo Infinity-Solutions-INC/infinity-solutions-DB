@@ -100,14 +100,17 @@ create table IF NOT EXISTS motivo_evasao (
     
     constraint fk_motEvas_turma_codigo foreign key (fkcodigo_turma) references turma(codigo_turma)
 );
-insert into prompt_ia (descricao_prompt) values ("A taxa de evasão da universidade está atualmente em <X>%, e buscamos estratégias para reduzi-la de forma significativa. Considere os seguintes aspectos:
-                    Engajamento Estudantil: Proponha formas de melhorar a integração dos alunos, suporte emocional e engajamento acadêmico.
-                    Infraestrutura e Recursos: Analise como a melhoria das instalações e recursos tecnológicos podem impactar na retenção dos alunos.
-                    Flexibilidade Acadêmica: Sugira ajustes nos horários, modalidades de ensino (presencial, EaD, híbrido) e métodos avaliativos para atender às diversas necessidades dos estudantes.
-                    Suporte Financeiro: Inclua ideias para facilitar o acesso a bolsas, descontos ou financiamento estudantil que aliviem o peso financeiro sobre os alunos.
-		    Comunicação: Indique como estabelecer uma comunicação mais próxima e eficaz entre alunos e a gestão universitária para identificar e resolver problemas rapidamente.
-			As recomendações devem ser práticas, escaláveis e baseadas em melhores práticas de gestão educacional.
-                    faça um texto corrido, sem caracteres especiais ou simbolos");
+insert into prompt_ia (descricao_prompt) values ("Gere Sugestões para que a instituição consiga atuar de maneira efetiva com os casos que estão tendo. 
+Essa é uma instituição de ensino superior que oferece várias graduações em áreas de conhecimentos diferentes, 
+no entanto tem enfrentado grandes problemas com as taxas de evasão de alunos por diversos motivos, 
+segundo uma pesquisa publicada pela própria universidade os cursos com período integral e matutino que são <x1> turmas, 
+tem maior taxa de evasão pois os alunos precisam muitas vezes trabalhar  e estudar representando 65% do total de evadidos, 
+assim como também mensalidades altas a partir de R$ 927,00 que dificultam o pagamento por parte dos alunos que evadem, 
+representa 43% do total de evadidos e são <x2> turmas nossas, como também a pesquisa aponta que 67% dos alunos evadidos fizeram o ensino médio em escolas públicas, 
+podendo esses alunos estarem classificados em um ou mais dos casos acima. 
+Os cursos com mais evasão são os de Ciências exatas ou da terra com 59% dos casos representando <x3> turmas dessa instituição, 
+área da saúde 22% representando <x4> turmas, Ciências sociais e aplicadas 20% representando <x5> turmas. 
+De maneira inteligente e criativa que planos de ação para modificações no curso, na grade curricular, e nas metodologias está instituição pode tomar?");
 
     
 insert into cargo (nome_cargo)
